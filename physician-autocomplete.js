@@ -20,7 +20,7 @@ jqueryScript.onload = function() {
         }
       });
 
-      // Targeting Physician Search Field (data-index="117248728")
+      // Targeting Physician Search Field (data-index="0000174a")
       var physicianSearchField = $('input[data-index="0000174a"]');
 
       physicianSearchField.typeahead({
