@@ -19,15 +19,16 @@ jqueryScript.onload = function() {
         }
       });
 
-      // Target Primary Physician - First Name (first occurrence of 117199499)
-      var firstNameField = $('input[data-index="117199499"]').eq(0);
+      // Target Primary Physician First Name (data-index="1")
+      var firstNameField = $('input[data-index="1"]');
+      
       firstNameField.typeahead({
         hint: true,
         highlight: true,
         minLength: 2
       }, {
         name: 'physicians',
-        display: data => data.first_name + ' ' + data.last_name,
+        display: data => `${data.first_name} ${data.last_name}`,
         source: physicians,
         templates: {
           suggestion: data => `<div>${data.first_name} ${data.last_name} — ${data.clinic_name} (${data.city}, ${data.state})</div>`
@@ -35,11 +36,11 @@ jqueryScript.onload = function() {
       });
 
       firstNameField.bind('typeahead:select', (ev, data) => {
-        // Set Physician First and Last Name
-        $('input[data-index="117199499"]').eq(0).val(data.first_name);
-        $('input[data-index="117199499"]').eq(1).val(data.last_name);
+        // Set Physician First and Last Name explicitly
+        $('input[data-index="1"]').val(data.first_name);
+        $('input[data-index="2"]').val(data.last_name);
 
-        // Set Clinic Information by Field IDs
+        // Set Clinic Information by exact data-index
         $('input[data-index="117199500"]').val(data.clinic_name);
         $('input[data-index="117199501"]').val(data.phone);
         $('input[data-index="117199502"]').val(data.address);
