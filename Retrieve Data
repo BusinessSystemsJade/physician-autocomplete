@@ -1,4 +1,4 @@
-// Load libraries dynamically
+// Dynamically load jQuery and Typeahead.js
 var jqueryScript = document.createElement('script');
 jqueryScript.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
 document.head.appendChild(jqueryScript);
@@ -14,12 +14,12 @@ jqueryScript.onload = function() {
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('first_name', 'last_name'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          url: 'https://dry-cherry-23e4.jfriederick.workers.dev/',
+          url: 'https://dry-cherry-23e4.jfriederick.workers.dev?query=%QUERY',
           wildcard: '%QUERY'
         }
       });
 
-      $('input[name="Primary_Physician_First"]').typeahead({
+      $('input[name="physician_first-name"]').typeahead({
         hint: true,
         highlight: true,
         minLength: 2
@@ -32,9 +32,9 @@ jqueryScript.onload = function() {
         }
       });
 
-      $('input[name="Primary_Physician_First"]').bind('typeahead:select', (ev, data) => {
-        $('input[name="Primary_Physician_First"]').val(data.first_name);
-        $('input[name="Primary_Physician_Last"]').val(data.last_name);
+      $('input[name="physician_first-name"]').bind('typeahead:select', (ev, data) => {
+        $('input[name="physician_first-name"]').val(data.first_name);
+        $('input[name="physician_last-name"]').val(data.last_name);
         $('input[name="Clinic_name"]').val(data.clinic_name);
         $('input[name="Clinic_phone"]').val(data.phone);
         $('input[name="Clinic_address"]').val(data.address);
