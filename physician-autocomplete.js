@@ -10,6 +10,7 @@ document.head.appendChild(typeaheadScript);
 jqueryScript.onload = function() {
   typeaheadScript.onload = function() {
     $(document).ready(function() {
+      
       var physicians = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('first_name', 'last_name'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -19,9 +20,9 @@ jqueryScript.onload = function() {
         }
       });
 
-      // Target Primary Physician First Name (data-index="1")
+      // Target Primary Physician First Name field (data-index="1")
       var firstNameField = $('input[data-index="1"]');
-      
+
       firstNameField.typeahead({
         hint: true,
         highlight: true,
@@ -36,11 +37,11 @@ jqueryScript.onload = function() {
       });
 
       firstNameField.bind('typeahead:select', (ev, data) => {
-        // Set Physician First and Last Name explicitly
+        // Physician First and Last Names
         $('input[data-index="1"]').val(data.first_name);
         $('input[data-index="2"]').val(data.last_name);
 
-        // Set Clinic Information by exact data-index
+        // Clinic fields using provided data-index values
         $('input[data-index="117199500"]').val(data.clinic_name);
         $('input[data-index="117199501"]').val(data.phone);
         $('input[data-index="117199502"]').val(data.address);
