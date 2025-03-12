@@ -15,7 +15,7 @@ jqueryScript.onload = function() {
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('first_name', 'last_name'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          url: 'https://your-worker-url?query=%QUERY',
+          url: 'https://dry-cherry-23e4.jfriederick.workers.dev/?query=%QUERY',
           wildcard: '%QUERY'
         }
       });
