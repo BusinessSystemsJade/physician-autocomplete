@@ -38,8 +38,8 @@ jqueryScript.onload = function() {
 
       firstNameField.bind('typeahead:select', (ev, data) => {
         // Physician First and Last Names
-        $('input[data-index="1"]').val(data.first_name);
-        $('input[data-index="2"]').val(data.last_name);
+        $('input[data-index="117199499"]').val(data.first_name);
+        $('input[data-index="117199499"]').val(data.last_name);
 
         // Clinic fields using provided data-index values
         $('input[data-index="117199500"]').val(data.clinic_name);
