@@ -21,7 +21,7 @@ jqueryScript.onload = function() {
       });
 
       // Targeting Physician Search Field (data-index="117248728")
-      var physicianSearchField = $('input[data-index="117248728"]');
+      var physicianSearchField = $('input[data-index="0000174a"]');
 
       physicianSearchField.typeahead({
         hint: true,
