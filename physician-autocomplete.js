@@ -19,7 +19,7 @@ jqueryScript.onload = function() {
         }
       });
 
-      $('input[name="physician_first-name"]').typeahead({
+      $('input[name="Primary Physician First - Name"]').typeahead({
         hint: true,
         highlight: true,
         minLength: 2
@@ -32,9 +32,9 @@ jqueryScript.onload = function() {
         }
       });
 
-      $('input[name="physician_first-name"]').bind('typeahead:select', (ev, data) => {
-        $('input[name="physician_first-name"]').val(data.first_name);
-        $('input[name="physician_last-name"]').val(data.last_name);
+      $('input[name="Primary Physician First - Name"]').bind('typeahead:select', (ev, data) => {
+        $('input[name="Primary Physician First - Name"]').val(data.first_name);
+        $('input[name="Primary Physician Last - Name"]').val(data.last_name);
         $('input[name="Clinic_name"]').val(data.clinic_name);
         $('input[name="Clinic_phone"]').val(data.phone);
         $('input[name="Clinic_address"]').val(data.address);
