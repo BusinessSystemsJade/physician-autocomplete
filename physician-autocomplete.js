@@ -15,15 +15,15 @@ jqueryScript.onload = function() {
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('first_name', 'last_name'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         remote: {
-          url: 'https://dry-cherry-23e4.jfriederick.workers.dev/?query=%QUERY',
+          url: 'https://your-worker-url?query=%QUERY',
           wildcard: '%QUERY'
         }
       });
 
-      // Correctly targeting Physician First Name (data-index="1")
-      var firstNameField = $('input[data-index="1"]');
+      // Targeting Physician Search Field (data-index="117248728")
+      var physicianSearchField = $('input[data-index="117248728"]');
 
-      firstNameField.typeahead({
+      physicianSearchField.typeahead({
         hint: true,
         highlight: true,
         minLength: 2
@@ -36,11 +36,9 @@ jqueryScript.onload = function() {
         }
       });
 
-      firstNameField.bind('typeahead:select', (ev, data) => {
+      physicianSearchField.bind('typeahead:select', (ev, data) => {
         $('input[data-index="1"]').val(data.first_name);
         $('input[data-index="2"]').val(data.last_name);
-
-        // Clinic fields explicitly by Field IDs you provided
         $('input[data-index="117199500"]').val(data.clinic_name);
         $('input[data-index="117199501"]').val(data.phone);
         $('input[data-index="117199502"]').val(data.address);
